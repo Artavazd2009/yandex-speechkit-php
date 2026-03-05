@@ -1,10 +1,14 @@
 # Yandex SpeechKit PHP SDK
 
+![Yandex SpeechKit PHP SDK](https://github.com/user-attachments/assets/60dac329-9959-4856-b44f-ada33a9685e3)
+
 [![PHP Version](https://img.shields.io/badge/php-%5E8.0-blue)](https://www.php.net/)
 [![Laravel](https://img.shields.io/badge/laravel-%5E8.0%7C%5E9.0%7C%5E10.0%7C%5E11.0%7C%5E12.0-red)](https://laravel.com/)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
-PHP SDK для работы с [Yandex SpeechKit API](https://cloud.yandex.ru/services/speechkit). Работает как самостоятельная библиотека или как Laravel-пакет. Если вам нужно транскрибировать аудио, определять спикеров или анализировать речь из PHP — вы по адресу.
+PHP SDK для работы с [Yandex SpeechKit API](https://cloud.yandex.ru/services/speechkit). Работает как самостоятельная
+библиотека или как Laravel-пакет. Если вам нужно транскрибировать аудио, определять спикеров или анализировать речь из
+PHP — вы по адресу.
 
 ## Что умеет
 
@@ -20,7 +24,8 @@ PHP SDK для работы с [Yandex SpeechKit API](https://cloud.yandex.ru/se
 
 Пакет входит в небольшое семейство PHP-библиотек для Yandex Cloud:
 
-- **[tigusigalpa/yandex-cloud-client-php](https://github.com/tigusigalpa/yandex-cloud-client-php)** — аутентификация: OAuth-токены, генерация и автообновление IAM-токенов
+- **[tigusigalpa/yandex-cloud-client-php](https://github.com/tigusigalpa/yandex-cloud-client-php)** — аутентификация:
+  OAuth-токены, генерация и автообновление IAM-токенов
 - **[tigusigalpa/yandexgpt-php](https://github.com/tigusigalpa/yandexgpt-php)** — интеграция с YandexGPT
 
 Об авторизации можно не думать — `yandex-cloud-client-php` сам разберётся с IAM-токенами.
@@ -232,24 +237,24 @@ echo "Операция отменена: " . $cancelledOperation->id . "\n";
 
 ### Методы клиента
 
-| Метод | Что делает | Возвращает |
-|-------|------------|------------|
-| `recognizeFileAsync($request)` | Запускает асинхронное распознавание | `Operation` |
-| `getRecognition($operationId)` | Забирает результат распознавания | `RecognitionResult` |
-| `deleteRecognition($operationId)` | Удаляет сохранённые результаты | `bool` |
-| `getOperation($operationId)` | Проверяет статус операции | `Operation` |
-| `cancelOperation($operationId)` | Отменяет операцию | `Operation` |
+| Метод                                                      | Что делает                                           | Возвращает          |
+|------------------------------------------------------------|------------------------------------------------------|---------------------|
+| `recognizeFileAsync($request)`                             | Запускает асинхронное распознавание                  | `Operation`         |
+| `getRecognition($operationId)`                             | Забирает результат распознавания                     | `RecognitionResult` |
+| `deleteRecognition($operationId)`                          | Удаляет сохранённые результаты                       | `bool`              |
+| `getOperation($operationId)`                               | Проверяет статус операции                            | `Operation`         |
+| `cancelOperation($operationId)`                            | Отменяет операцию                                    | `Operation`         |
 | `recognizeAndWait($request, $poll = 10, $maxWait = 14400)` | Всё в одном: отправить, дождаться, вернуть результат | `RecognitionResult` |
-| `getCloudClient()` | Возвращает базовый cloud-клиент | `YandexCloudClient` |
+| `getCloudClient()`                                         | Возвращает базовый cloud-клиент                      | `YandexCloudClient` |
 
 ### Поддерживаемые форматы
 
-| Формат | Тип | Как использовать |
-|--------|-----|------------------|
-| WAV | Контейнер | `AudioFormat::container('WAV')` |
-| OGG_OPUS | Контейнер | `AudioFormat::container('OGG_OPUS')` |
-| MP3 | Контейнер | `AudioFormat::container('MP3')` |
-| LINEAR16_PCM | Raw | `AudioFormat::raw('LINEAR16_PCM', 16000, 1)` |
+| Формат       | Тип       | Как использовать                             |
+|--------------|-----------|----------------------------------------------|
+| WAV          | Контейнер | `AudioFormat::container('WAV')`              |
+| OGG_OPUS     | Контейнер | `AudioFormat::container('OGG_OPUS')`         |
+| MP3          | Контейнер | `AudioFormat::container('MP3')`              |
+| LINEAR16_PCM | Raw       | `AudioFormat::raw('LINEAR16_PCM', 16000, 1)` |
 
 ### Модели распознавания
 

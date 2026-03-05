@@ -1,10 +1,14 @@
 # Yandex SpeechKit PHP SDK
 
+![Yandex SpeechKit PHP SDK](https://github.com/user-attachments/assets/60dac329-9959-4856-b44f-ada33a9685e3)
+
 [![PHP Version](https://img.shields.io/badge/php-%5E8.0-blue)](https://www.php.net/)
 [![Laravel](https://img.shields.io/badge/laravel-%5E8.0%7C%5E9.0%7C%5E10.0%7C%5E11.0%7C%5E12.0-red)](https://laravel.com/)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
-A PHP SDK that makes it easy to work with [Yandex SpeechKit API](https://cloud.yandex.com/en/services/speechkit). Works great on its own or as a Laravel package. If you need to transcribe audio, identify speakers, or run speech analytics from PHP — this is what you're looking for.
+A PHP SDK that makes it easy to work with [Yandex SpeechKit API](https://cloud.yandex.com/en/services/speechkit). Works
+great on its own or as a Laravel package. If you need to transcribe audio, identify speakers, or run speech analytics
+from PHP — this is what you're looking for.
 
 ## What it does
 
@@ -20,10 +24,12 @@ A PHP SDK that makes it easy to work with [Yandex SpeechKit API](https://cloud.y
 
 This package is part of a small family of Yandex Cloud PHP libraries:
 
-- **[tigusigalpa/yandex-cloud-client-php](https://github.com/tigusigalpa/yandex-cloud-client-php)** — handles authentication: OAuth tokens, IAM token generation and auto-refresh
+- **[tigusigalpa/yandex-cloud-client-php](https://github.com/tigusigalpa/yandex-cloud-client-php)** — handles
+  authentication: OAuth tokens, IAM token generation and auto-refresh
 - **[tigusigalpa/yandexgpt-php](https://github.com/tigusigalpa/yandexgpt-php)** — YandexGPT integration
 
-You don't need to worry about auth tokens — `yandex-cloud-client-php` takes care of IAM token generation and refresh for you.
+You don't need to worry about auth tokens — `yandex-cloud-client-php` takes care of IAM token generation and refresh for
+you.
 
 ## Requirements
 
@@ -232,24 +238,24 @@ echo "Operation cancelled: " . $cancelledOperation->id . "\n";
 
 ### Client methods
 
-| Method | What it does | Returns |
-|--------|-------------|---------|
-| `recognizeFileAsync($request)` | Kicks off async recognition | `Operation` |
-| `getRecognition($operationId)` | Fetches recognition results | `RecognitionResult` |
-| `deleteRecognition($operationId)` | Deletes stored results | `bool` |
-| `getOperation($operationId)` | Checks operation status | `Operation` |
-| `cancelOperation($operationId)` | Cancels a running operation | `Operation` |
+| Method                                                     | What it does                                  | Returns             |
+|------------------------------------------------------------|-----------------------------------------------|---------------------|
+| `recognizeFileAsync($request)`                             | Kicks off async recognition                   | `Operation`         |
+| `getRecognition($operationId)`                             | Fetches recognition results                   | `RecognitionResult` |
+| `deleteRecognition($operationId)`                          | Deletes stored results                        | `bool`              |
+| `getOperation($operationId)`                               | Checks operation status                       | `Operation`         |
+| `cancelOperation($operationId)`                            | Cancels a running operation                   | `Operation`         |
 | `recognizeAndWait($request, $poll = 10, $maxWait = 14400)` | Does everything: submit, poll, return results | `RecognitionResult` |
-| `getCloudClient()` | Returns the underlying cloud client | `YandexCloudClient` |
+| `getCloudClient()`                                         | Returns the underlying cloud client           | `YandexCloudClient` |
 
 ### Supported audio formats
 
-| Format | Type | How to use |
-|--------|------|------------|
-| WAV | Container | `AudioFormat::container('WAV')` |
-| OGG_OPUS | Container | `AudioFormat::container('OGG_OPUS')` |
-| MP3 | Container | `AudioFormat::container('MP3')` |
-| LINEAR16_PCM | Raw | `AudioFormat::raw('LINEAR16_PCM', 16000, 1)` |
+| Format       | Type      | How to use                                   |
+|--------------|-----------|----------------------------------------------|
+| WAV          | Container | `AudioFormat::container('WAV')`              |
+| OGG_OPUS     | Container | `AudioFormat::container('OGG_OPUS')`         |
+| MP3          | Container | `AudioFormat::container('MP3')`              |
+| LINEAR16_PCM | Raw       | `AudioFormat::raw('LINEAR16_PCM', 16000, 1)` |
 
 ### Recognition models
 
